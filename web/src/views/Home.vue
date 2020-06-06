@@ -54,11 +54,11 @@
     <!-- 新闻资讯 -->
     <m-listcard title="新闻资讯" icon="zixun" :categories="newsCats">
       <template #swiperSlot="{slotItem}">
-        <div class="py-2" v-for="(item, index) in slotItem.newsList" :key="index">
-          <span>{{item.categoryName}}</span>
-          <span>|</span>
-          <span>{{item.title}}</span>
-          <span>{{item.date}}</span>
+        <div class="py-2 font-lg d-flex" v-for="(item, index) in slotItem.Lists" :key="index">
+          <span class="text-primary">[{{item.categoryName}}]</span>
+          <span class="px-2 text-grey">|</span>
+          <span class="flex-1 text-ellipsis">{{item.name}}</span>
+          <span class="pl-2 text-grey">{{item.createdAt|date}}</span>
         </div>
       </template>
     </m-listcard>
@@ -70,8 +70,13 @@
 
 <script>
 // @ is an alias to /src
-
+import dayjs from "dayjs";
 export default {
+  filters: {
+    date(val) {
+      return dayjs(val).format("MM/DD");
+    }
+  },
   data() {
     return {
       swiperOptions: {
@@ -80,49 +85,18 @@ export default {
         }
         // Some Swiper option/callback...
       },
-      newsCats: [
-        {
-          name: "热门",
-          newsList: new Array(5).fill(1).map(() => ({
-            categoryName: "公告",
-            title: "六月二日xxx",
-            date: "06/01"
-          }))
-        },
-        {
-          name: "新闻",
-          newsList: new Array(5).fill(1).map(() => ({
-            categoryName: "公告",
-            title: "六月二日xxx",
-            date: "06/01"
-          }))
-        },
-        {
-          name: "公告",
-          newsList: new Array(5).fill(1).map(() => ({
-            categoryName: "公告",
-            title: "六月二日xxx",
-            date: "06/01"
-          }))
-        },
-        {
-          name: "活动",
-          newsList: new Array(5).fill(1).map(() => ({
-            categoryName: "公告",
-            title: "六月二日xxx",
-            date: "06/01"
-          }))
-        },
-        {
-          name: "赛事",
-          newsList: new Array(5).fill(1).map(() => ({
-            categoryName: "公告",
-            title: "六月二日xxx",
-            date: "06/01"
-          }))
-        }
-      ]
+      newsCats: []
     };
+  },
+  methods: {
+    async fetchNews() {
+      const res = await this.$http.get("news/list");
+      console.log(res);
+      this.newsCats = res.data;
+    }
+  },
+  created() {
+    this.fetchNews();
   }
 };
 </script>

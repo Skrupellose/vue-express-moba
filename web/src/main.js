@@ -7,6 +7,11 @@ import 'swiper/css/swiper.css'
 import './assets/iconfont/iconfont.css'
 import MyCard from './components/Card.vue'
 import MyListCard from './components/ListCard.vue'
+import axios from 'axios'
+
+Vue.prototype.$http = axios.create({
+  baseURL: 'http://localhost:3000/web/api'
+})
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 Vue.component('mCard', MyCard)
