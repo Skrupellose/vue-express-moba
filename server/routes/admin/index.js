@@ -2,6 +2,7 @@ module.exports = app => {
   const assert = require('http-assert')
   const express = require('express')
   const jwt = require('jsonwebtoken')
+  const AdminUser = require('../../models/AdminUser')
   // const AdminUser = require('../../models/AdminUser')
   const router = express.Router({
     //父级url参数合并到router内
@@ -50,9 +51,9 @@ module.exports = app => {
   
   const authmiddleware = require('../../middleware/auth')
   const resourcemiddleware = require('../../middleware/resource')
-  app.use('/admin/api/rest/:resource',resourcemiddleware(), router)
+  // app.use('/admin/api/rest/:resource',resourcemiddleware(), router)
 
-  // app.use('/admin/api/rest/:resource', authmiddleware(), resourcemiddleware(), router)
+  app.use('/admin/api/rest/:resource', authmiddleware(), resourcemiddleware(), router)
   const multer = require('multer')
   //__dirname：绝对地址
   const upload = multer({ dest: __dirname + '../../../uploads' })
@@ -66,7 +67,7 @@ module.exports = app => {
   })
 
   app.post('/admin/api/login', async (req, res) => {
-    const AdminUser = require('../../models/AdminUser')
+ 
     const { username, password } = req.body
     //查询用户
     const user = await AdminUser.findOne({ username }).select('+password')

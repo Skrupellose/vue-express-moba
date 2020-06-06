@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     async fetch() {
-      const res = await this.$http.get("rest/adminusers");
+      const res = await this.$http.get("rest/adminUsers");
       this.tableData = res.data;
     },
     edit(item) {
@@ -38,7 +38,7 @@ export default {
         type: "warning"
       })
         .then(async () => {
-          await this.$http.delete(`rest/adminusers/${item._id}`);
+          await this.$http.delete(`rest/adminUsers/${item._id}`);
           this.$message({
             type: "success",
             message: "删除成功!"
@@ -59,5 +59,3 @@ export default {
 };
 </script>
 
-<style>
-</style>

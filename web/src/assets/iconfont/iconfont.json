@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1289651",
+      "name": "menu",
+      "font_class": "menu",
+      "unicode": "e504",
+      "unicode_decimal": 58628
+    },
+    {
+      "icon_id": "6525177",
+      "name": "资讯",
+      "font_class": "zixun",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "9144391",
+      "name": "menu",
+      "font_class": "menu1",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "9725720",
+      "name": "英雄",
+      "font_class": "yingxiong",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "10447577",
+      "name": "返 回",
+      "font_class": "fanhui-copy",
+      "unicode": "e571",
+      "unicode_decimal": 58737
+    }
+  ]
+}

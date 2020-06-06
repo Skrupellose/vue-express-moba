@@ -1,0 +1,69 @@
+
+// 工具类 变量
+// colors
+$colors: (
+  "primary": #db9e3f,
+  "white": #fff,
+  "black": #000,
+  "dark": #222,
+  "grey": #999,
+  "light": #f9f9f9,
+  "dark-1": #343440,
+  "grey-1": #666,
+  "blue": #059
+);
+
+// font-size
+$base-font-size: 1rem;
+$font-size: (
+  xxs: 0.6154,
+  xs: 0.7692,
+  sm: 0.9231,
+  md: 1,
+  lg: 1.0769,
+  xl: 1.2308,
+);
+
+//flex
+$flex-jc: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+);
+
+
+$flex-ai: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+);
+
+//spacing
+$space-type: (
+  m: margin,
+  p: padding,
+);
+
+$space-direction: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left,
+);
+
+$space-base-size: 1rem;
+
+$space-sizes: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 1.5,
+  5: 2,
+);
+
+
+
