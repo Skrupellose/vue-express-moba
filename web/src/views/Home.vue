@@ -54,17 +54,53 @@
     <!-- 新闻资讯 -->
     <m-listcard title="新闻资讯" icon="zixun" :categories="newsCats">
       <template #swiperSlot="{slotItem}">
-        <div class="py-2 font-lg d-flex" v-for="(item, index) in slotItem.Lists" :key="index">
+        <router-link
+          tag="div"
+          :to="`/articles/${item._id}`"
+          class="py-2 font-lg d-flex"
+          v-for="(item, index) in slotItem.Lists"
+          :key="index"
+        >
           <span class="text-primary">[{{item.categoryName}}]</span>
           <span class="px-2 text-grey">|</span>
           <span class="flex-1 text-ellipsis">{{item.name}}</span>
           <span class="pl-2 text-grey">{{item.createdAt|date}}</span>
-        </div>
+        </router-link>
       </template>
     </m-listcard>
 
     <!-- 英雄列表 -->
-    <m-card title="英雄列表" icon="yingxiong"></m-card>
+    <m-listcard title="英雄列表" icon="yingxiong" :categories="heroesCats">
+      <template #swiperSlot="{slotItem}">
+        <div class="d-flex flex-wrap" style="margin: 0 -0.4rem">
+          <div
+            style="width:20%"
+            class="py-2 text-center"
+            v-for="(item, index) in slotItem.heroList"
+            :key="index"
+          >
+            <img :src="item.avatar" alt style="width:70px" />
+            <p>{{item.name}}</p>
+          </div>
+        </div>
+      </template>
+    </m-listcard>
+
+    <m-listcard title="英雄列表" icon="yingxiong" :categories="heroesCats">
+      <template #swiperSlot="{slotItem}">
+        <div class="d-flex flex-wrap">
+          <div
+            style="width:20%"
+            class="py-2 text-center"
+            v-for="(item, index) in slotItem.heroList"
+            :key="index"
+          >
+            <img :src="item.avatar" alt />
+            <p>{{item.name}}</p>
+          </div>
+        </div>
+      </template>
+    </m-listcard>
   </div>
 </template>
 
@@ -85,7 +121,8 @@ export default {
         }
         // Some Swiper option/callback...
       },
-      newsCats: []
+      newsCats: [],
+      heroesCats: []
     };
   },
   methods: {
@@ -93,10 +130,16 @@ export default {
       const res = await this.$http.get("news/list");
       console.log(res);
       this.newsCats = res.data;
+    },
+    async fetchHeroes() {
+      const res = await this.$http.get("heroes/list");
+      console.log(res);
+      this.heroesCats = res.data;
     }
   },
   created() {
     this.fetchNews();
+    this.fetchHeroes();
   }
 };
 </script>
@@ -113,8 +156,6 @@ export default {
   }
 }
 .nav-icon {
-  border-top: 2px solid #bbbbbb;
-  border-bottom: 2px solid #bbbbbb;
   background: map-get($colors, "white");
   .nav-item {
     width: 25%;

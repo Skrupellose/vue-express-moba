@@ -3,7 +3,6 @@ module.exports = app => {
   const express = require('express')
   const jwt = require('jsonwebtoken')
   const AdminUser = require('../../models/AdminUser')
-  // const AdminUser = require('../../models/AdminUser')
   const router = express.Router({
     //父级url参数合并到router内
     mergeParams: true

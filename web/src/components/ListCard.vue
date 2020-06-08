@@ -3,7 +3,7 @@
     <m-card :title="title" :icon="icon">
       <div class="nav jc-between">
         <div
-          class="nav-item"
+          class="nav-item pt-3"
           :class="{active: active === index}"
           v-for="(item, index) in categories"
           :key="index"
@@ -12,11 +12,17 @@
           <div class="nav-link">{{item.name}}</div>
         </div>
       </div>
-      <swiper ref="list" @slide-change="()=>active = $refs.list.$swiper.realIndex">
-        <swiper-slide v-for="(item, index) in categories" :key="index">
-          <slot name="swiperSlot" :slotItem="item"></slot>
-        </swiper-slide>
-      </swiper>
+      <div class="pt-2"> 
+        <swiper
+          ref="list"
+          :options="{autoHeight: true}"
+          @slide-change="()=>active = $refs.list.$swiper.realIndex"
+        >
+          <swiper-slide v-for="(item, index) in categories" :key="index">
+            <slot name="swiperSlot" :slotItem="item"></slot>
+          </swiper-slide>
+        </swiper>
+      </div>
     </m-card>
   </div>
 </template>

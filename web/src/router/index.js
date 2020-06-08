@@ -4,22 +4,17 @@ import Main from '../views/Main.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
-    name: 'main',
     component: Main,
-    children:[
+    children: [
       {
-        path: '/', component:()=> import ('../views/Home.vue')
+        path: '/', component: () => import('../views/Home.vue')
       },
-      // {
-      //   path: '/', component:()=> import ('../views/Home.vue')
-      // },
-      // {
-      //   path: '/', component:()=> import ('../views/Home.vue')
-      // },
-      
+      {
+        path: '/articles/:id', component: () => import('../views/Article.vue'), props: true
+      }
     ]
   }
 ]

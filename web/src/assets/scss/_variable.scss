@@ -8,11 +8,12 @@ $colors: (
   "dark": #222,
   "grey": #999,
   "light": #f9f9f9,
+  'light-1': #9fa0a0,
   "dark-1": #343440,
   "grey-1": #666,
   "blue": #059
 );
-
+$border-color: map-get($colors, 'light-1');
 // font-size
 $base-font-size: 1rem;
 $font-size: (
