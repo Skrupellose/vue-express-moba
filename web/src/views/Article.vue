@@ -3,7 +3,7 @@
     <div class="d-flex">
       <div class="iconfont icon-fanhui-copy pr-2"></div>
       <strong class="flex-1 text-blue">{{model.name}}</strong>
-      <div class="text-grey">1023-123</div>
+      <div class="text-grey">{{model.createdAt | date}}</div>
     </div>
 
     <div class="px-3 body" v-html="model.body"></div>
@@ -23,7 +23,13 @@
   </div>
 </template>
 <script>
+import dayjs from "dayjs";
 export default {
+  filters: {
+  date(val) {
+      return dayjs(val).format("YYYY-MM-DD");
+    }
+  },
   data() {
     return {
       model: null
