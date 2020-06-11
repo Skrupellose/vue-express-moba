@@ -137,10 +137,15 @@ module.exports = app => {
   router.get('/articles/:id', async (req, res) => {
     const data = await Article.findById(req.params.id).lean()
     result = await Article.find().where({
-      categories: { $in: data.categories}
+      categories: { $in: data.categories }
     }).lean()
     randomRelated = result.slice(0).sort((a, b) => Math.random() - 0.5)
-    data.related = randomRelated.slice(0,2)
+    data.related = randomRelated.slice(0, 2)
+    res.send(data)
+  })
+  //英雄详情
+  router.get('/heroes/:id', async (req, res) => {
+    const data = await Hero.findById(req.params.id).populate('categories items1 items2 partners.hero').lean()
     res.send(data)
   })
   app.use('/web/api', router)

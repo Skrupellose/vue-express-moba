@@ -10,6 +10,9 @@ const schema = new mongoose.Schema({
   avatar: {
     type: String
   },
+  banner: {
+    type: String
+  },
   categories: [{
     type: mongoose.SchemaTypes.ObjectId, ref: 'Category'
   }],
@@ -33,6 +36,12 @@ const schema = new mongoose.Schema({
     },
     name: {
       type: String
+    },
+    cd: {
+      type: String
+    },
+    cost: {
+      type: String 
     },
     description: {
       type: String

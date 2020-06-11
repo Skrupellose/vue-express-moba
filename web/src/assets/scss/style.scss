@@ -134,6 +134,21 @@ p {
   // 取上面map中的键值对
   font-size: map-get($map: $font-size, $key: "sm") * $base-font-size;
   padding: 0.2rem 0.6rem;
+  &.btn-lg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: map-get($colors,'white-1');
+    border: 1px solid map-get($colors,"white-2");
+    padding: 0.8rem 0.1rem;
+    font-size: 0.8rem;
+    i {
+      color: map-get($colors, "primary");
+      font-weight: bold;
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+  }
 }
 
 //nav active

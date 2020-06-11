@@ -73,15 +73,17 @@
     <m-listcard title="英雄列表" icon="yingxiong" :categories="heroesCats">
       <template #swiperSlot="{slotItem}">
         <div class="d-flex flex-wrap" style="margin: 0 -0.4rem">
-          <div
+          <router-link
+            tag="div"
+            :to="`/hero/${item._id}`"
             style="width:20%"
             class="py-2 text-center"
-            v-for="(item, index) in slotItem.heroList"
-            :key="index"
+            v-for="(item) in slotItem.heroList"
+            :key="item._id"
           >
             <img :src="item.avatar" alt style="width:70px" />
             <p>{{item.name}}</p>
-          </div>
+          </router-link>
         </div>
       </template>
     </m-listcard>

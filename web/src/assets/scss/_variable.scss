@@ -1,19 +1,24 @@
-
 // 工具类 变量
 // colors
 $colors: (
   "primary": #db9e3f,
   "white": #fff,
+  "white-1":#fcfcfc,
+  "white-2":#eceef0,
   "black": #000,
   "dark": #222,
-  "grey": #999,
+  "grey": rgb(206, 200, 200),
   "light": #f9f9f9,
-  'light-1': #9fa0a0,
+  "light-1": #9fa0a0,
   "dark-1": #343440,
-  "grey-1": #666,
-  "blue": #059
+  "grey-1": rgb(221, 219, 219),
+  "blue": #059,
+  "difficult": #895f15,
+  "skills": #223896,
+  "attack": #832521,
+  "survive": #34342c,
 );
-$border-color: map-get($colors, 'light-1');
+$border-color: map-get($colors, "grey");
 // font-size
 $base-font-size: 1rem;
 $font-size: (
@@ -33,7 +38,6 @@ $flex-jc: (
   between: space-between,
   around: space-around,
 );
-
 
 $flex-ai: (
   start: flex-start,
@@ -65,6 +69,3 @@ $space-sizes: (
   4: 1.5,
   5: 2,
 );
-
-
-

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1>分类列表</h1>
+    <h1>英雄列表</h1>
     <el-table :data="tableData">
         <el-table-column prop="_id" label="ID" width="220">
         </el-table-column>
-        <el-table-column prop="name" label="物品名称" width="220">
+        <el-table-column prop="name" label="英雄名称" width="220">
         </el-table-column>
         <el-table-column prop="icon" label="图标" width="220">
           <template v-slot="scope">
